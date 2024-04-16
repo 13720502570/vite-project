@@ -7,16 +7,18 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AButton: (typeof import('ant-design-vue/es'))['Button']
-    AInput: (typeof import('ant-design-vue/es'))['Input']
-    ALayout: (typeof import('ant-design-vue/es'))['Layout']
-    ALayoutContent: (typeof import('ant-design-vue/es'))['LayoutContent']
-    ALayoutHeader: (typeof import('ant-design-vue/es'))['LayoutHeader']
-    ALayoutSider: (typeof import('ant-design-vue/es'))['LayoutSider']
-    AMenu: (typeof import('ant-design-vue/es'))['Menu']
-    ASelect: (typeof import('ant-design-vue/es'))['Select']
-    ASpace: (typeof import('ant-design-vue/es'))['Space']
-    RouterLink: (typeof import('vue-router'))['RouterLink']
-    RouterView: (typeof import('vue-router'))['RouterView']
+    AButton: typeof import('ant-design-vue/es')['Button']
+    AInput: typeof import('ant-design-vue/es')['Input']
+    ALayout: typeof import('ant-design-vue/es')['Layout']
+    ALayoutContent: typeof import('ant-design-vue/es')['LayoutContent']
+    ALayoutHeader: typeof import('ant-design-vue/es')['LayoutHeader']
+    ALayoutSider: typeof import('ant-design-vue/es')['LayoutSider']
+    AMenu: typeof import('ant-design-vue/es')['Menu']
+    ASelect: typeof import('ant-design-vue/es')['Select']
+    ASpace: typeof import('ant-design-vue/es')['Space']
+    ATabPane: typeof import('ant-design-vue/es')['TabPane']
+    ATabs: typeof import('ant-design-vue/es')['Tabs']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
   }
 }

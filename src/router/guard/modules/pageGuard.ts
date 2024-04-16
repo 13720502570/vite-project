@@ -8,8 +8,14 @@ export const createPageGuard = (router: Router) => {
     if (!appStore.loaded) {
       appStore.buildRoutesAction(routeModuleList)
       appStore.setLoaded(true)
+      appStore.getCachedTabList()
     }
     appStore.setSelectedKeys([to.name as string])
     appStore.addOpenKeys(to.matched.slice(1).map((v) => v.name as string))
+    appStore.addTab({
+      label: to.meta.title as string,
+      key: to.name as string,
+      noCache: !!to.meta.noCache
+    })
   })
 }

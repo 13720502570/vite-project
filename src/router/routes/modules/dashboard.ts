@@ -10,15 +10,16 @@ const dashboard: AppRouteRecordRaw = {
   children: [
     {
       path: 'test1',
-      name: 'test1',
+      name: 'Test',
       component: () => import('@/views/dashboard/Test.vue'),
       meta: {
-        title: 'test1'
+        title: 'test1',
+        noCache: true
       }
     },
     {
       path: 'test2',
-      name: 'test2',
+      name: 'Test2',
       component: () => import('@/views/dashboard/Test2.vue'),
       meta: {
         title: 'test2'
