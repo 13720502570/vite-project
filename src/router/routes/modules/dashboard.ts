@@ -3,7 +3,7 @@ import type { AppRouteRecordRaw } from '../type'
 const dashboard: AppRouteRecordRaw = {
   path: '/dashboard',
   name: 'dashboard',
-  redirect: '/dashboard/test1',
+  redirect: { name: 'Test' },
   meta: {
     title: 'dashboard'
   },
@@ -27,14 +27,15 @@ const dashboard: AppRouteRecordRaw = {
     },
     {
       path: 'test3',
-      name: 'test3',
+      name: 'Test3',
+      redirect: { name: 'Test4' },
       meta: {
         title: 'test3'
       },
       children: [
         {
           path: 'test4',
-          name: 'test4',
+          name: 'Test4',
           component: () => import('@/views/dashboard/Test.vue'),
           meta: {
             title: 'test4'
@@ -44,14 +45,15 @@ const dashboard: AppRouteRecordRaw = {
     },
     {
       path: 'test5',
-      name: 'test5',
+      name: 'Test5',
+      redirect: { name: 'Test6' },
       meta: {
         title: 'test5'
       },
       children: [
         {
           path: 'test6',
-          name: 'test6',
+          name: 'Test6',
           component: () => import('@/views/dashboard/Test2.vue'),
           meta: {
             title: 'test6'
