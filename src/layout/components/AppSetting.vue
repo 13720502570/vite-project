@@ -6,8 +6,8 @@
     <div>
       <Breadcrumb />
     </div>
-    <div class="ml-auto mr-10px">
-      <AppSettings />
+    <div class="h-full ml-auto mr-10px">
+      <UserDropDown />
     </div>
   </div>
 </template>
@@ -15,6 +15,7 @@
 <script setup lang="ts">
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue'
 import Breadcrumb from './Breadcrumb.vue'
+import UserDropDown from './UserDropDown.vue'
 
 const collapsed = defineModel('collapsed')
 const toggleMenuStatus = () => (collapsed.value = !collapsed.value)
