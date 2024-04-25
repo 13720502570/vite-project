@@ -1,6 +1,6 @@
 <template>
   <div class="h-48px flex items-center pl-10px" :class="{ 'justify-center': props.collapsed }">
-    <img src="@/assets/svg/logo.svg" class="size-32px" />
+    <img src="@/assets/images/logo.png" class="size-32px" />
     <span v-if="!props.collapsed" class="text-17px font-bold">后台管理系统</span>
   </div>
 </template>

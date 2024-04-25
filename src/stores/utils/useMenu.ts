@@ -28,6 +28,12 @@ export const useMenu = () => {
     openKeys.value = Array.from(new Set([...openKeys.value, ...payLoad]))
   }
 
+  const resetStore = () => {
+    menus.value = []
+    selectedKeys.value = []
+    openKeys.value = []
+  }
+
   return {
     menus,
     buildRoutesAction,
@@ -36,6 +42,7 @@ export const useMenu = () => {
     selectedKeys,
     setSelectedKeys,
     openKeys,
-    addOpenKeys
+    addOpenKeys,
+    resetStore
   }
 }

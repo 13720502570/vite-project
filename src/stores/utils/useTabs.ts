@@ -7,13 +7,14 @@ type tabType = {
   key: string
   noCache: boolean
 }
+
+// 获取持久化对象
+const persistent = usePersistent(StorageType.s)
+
 export const useTabs = () => {
   const currentTab = ref('')
   // 当前打开的页签
   const cachedTabList = ref<tabType[]>([])
-
-  // 获取持久化对象
-  const persistent = usePersistent(StorageType.s)
 
   const getCachedTabList = () => (cachedTabList.value = persistent.get('cachedTabList') || [])
 
@@ -39,11 +40,17 @@ export const useTabs = () => {
     }
   }
 
+  const resetStore = () => {
+    currentTab.value = ''
+    cachedTabList.value = []
+    persistent.remove('cachedTabList')
+  }
   return {
     currentTab,
     cachedTabList,
     getCachedTabList,
     addTab,
-    removeTab
+    removeTab,
+    resetStore
   }
 }

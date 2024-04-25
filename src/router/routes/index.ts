@@ -7,6 +7,15 @@ export const routeModuleList: AppRouteRecordRaw[] = Object.keys(modules).map(
   (key) => (modules[key] as Recordable).default
 )
 
+const loginRoute: AppRouteRecordRaw = {
+  path: '/login',
+  name: 'Login',
+  component: () => import('@/views/sys/Login.vue'),
+  meta: {
+    title: 'Login'
+  }
+}
+
 const rootRoute: AppRouteRecordRaw = {
   path: '/',
   name: 'root',
@@ -18,4 +27,4 @@ const rootRoute: AppRouteRecordRaw = {
   children: routeModuleList
 }
 
-export const routes = [rootRoute]
+export const routes = [loginRoute, rootRoute]
