@@ -1,7 +1,7 @@
 <template>
-  <div class="h-48px flex items-center pl-10px" :class="{ 'justify-center': props.collapsed }">
-    <img src="@/assets/images/logo.png" class="size-32px" />
-    <span v-if="!props.collapsed" class="text-17px font-bold">后台管理系统</span>
+  <div class="h-48 flex items-center pl-10" :class="{ 'justify-center': props.collapsed }">
+    <img src="@/assets/images/logo.png" class="size-32" />
+    <span v-if="!props.collapsed" class="text-17 font-bold ml-8">后台管理系统</span>
   </div>
 </template>
 

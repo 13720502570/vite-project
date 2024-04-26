@@ -9,9 +9,9 @@
         <AppSetting
           v-model:collapsed="collapsed"
           style="border-bottom: 1px solid #eee"
-          class="h-48px flex"
+          class="h-48 flex"
         />
-        <MultipleTabs class="h-32px overflow-y-hidden" />
+        <MultipleTabs class="h-32 overflow-y-hidden" />
       </a-layout-header>
       <a-layout-content>
         <router-view v-slot="{ Component }">

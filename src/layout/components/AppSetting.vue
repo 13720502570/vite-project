@@ -1,12 +1,12 @@
 <template>
   <div class="flex items-center">
-    <div @click="toggleMenuStatus" class="text-16px px-10px cursor-pointer">
+    <div @click="toggleMenuStatus" class="text-16 px-10 cursor-pointer">
       <MenuUnfoldOutlined v-if="collapsed" /> <MenuFoldOutlined v-else />
     </div>
     <div>
       <Breadcrumb />
     </div>
-    <div class="h-full ml-auto mr-10px">
+    <div class="h-full ml-auto mr-10">
       <UserDropDown />
     </div>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="h-full">
     <a-space>
-      <a-select class="w-120px" v-model:value="food" :options="foodOptions" @change="change" />
+      <a-select class="w-120" v-model:value="food" :options="foodOptions" @change="change" />
       <span>当前选中的食物为{{ food }}</span>
     </a-space>
   </div>

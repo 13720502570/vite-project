@@ -1,26 +1,24 @@
 <template>
   <div class="h-full flex">
     <div class="h-full login-bg w-1/2">
-      <div class="h-full pl-132px relative text-white">
-        <h1 class="absolute top-0 h-80px flex items-center text-32px font-bold">
-          <img src="@/assets/images/logo.png" class="size-48px" />
-          <span class="ml-8px">My Project</span>
+      <div class="h-full pl-132 relative text-white">
+        <h1 class="absolute top-0 h-80 flex items-center text-32 font-bold">
+          <img src="@/assets/images/logo.png" class="size-48" />
+          <span class="ml-8">My Project</span>
         </h1>
         <div class="h-full flex flex-wrap content-center">
           <div class="w-full">
-            <img src="@/assets/svg/login-box-bg.svg" class="h-165px" />
+            <img src="@/assets/svg/login-box-bg.svg" class="h-165" />
           </div>
-          <div class="w-full text-24px mt-52px">
-            Vue3 + Ts + Vue-Router + Pinia + Ant-design-vue
-          </div>
-          <div class="w-full mt-16px">输入您的个人详细信息开始使用！</div>
+          <div class="w-full text-24 mt-52">Vue3 + Ts + Vue-Router + Pinia + Ant-design-vue</div>
+          <div class="w-full mt-16">输入您的个人详细信息开始使用！</div>
         </div>
       </div>
     </div>
     <div class="h-full w-1/2">
-      <div class="h-full pr-132px relative">
-        <div class="h-full w-450px mx-auto flex flex-wrap content-center">
-          <h2 class="w-full text-32px font-bold">登录</h2>
+      <div class="h-full pr-132 relative">
+        <div class="h-full w-450 mx-auto flex flex-wrap content-center">
+          <h2 class="w-full text-32 font-bold">登录</h2>
           <a-form class="w-full" :model="form" @submit="submit">
             <a-form-item v-bind="validateInfos.userName">
               <a-input v-model:value="form.userName" placeholder="账号" size="large"></a-input>

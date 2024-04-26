@@ -1,6 +1,8 @@
 // uno.config.ts
-import { defineConfig, presetTypography, presetUno } from 'unocss'
+import { defineConfig, presetUno, presetAttributify } from 'unocss'
+import presetRemToPx from '@unocss/preset-rem-to-px'
 
 export default defineConfig({
-  presets: [presetUno(), presetTypography()]
+  // @ts-ignore
+  presets: [presetUno(), presetRemToPx({ baseFontSize: 4 }), presetAttributify()]
 })

@@ -1,9 +1,9 @@
 <template>
   <div class="h-full flex items-center">
     <a-dropdown placement="bottomLeft">
-      <div class="flex items-center p-10px cursor-pointer hover:bg-[#f6f6f6]">
+      <div class="flex items-center p-10 cursor-pointer hover:bg-[#f6f6f6]">
         <a-avatar :src="userUrl" />
-        <span class="ml-10px">Vue3</span>
+        <span class="ml-10">Vue3</span>
       </div>
       <template #overlay>
         <a-menu mode="inline" :items="menus" @click="click" />
