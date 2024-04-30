@@ -17,6 +17,7 @@ export const createPageGuard = (router: Router) => {
       return { path: '/login', replace: true }
     }
 
+    // TODO: 登陆后缓存以下信息，而非每次路由跳转时都进行初始化
     // 页面每次刷新后store丢失，使用浏览器缓存初始化store
     if (!appStore.loaded) {
       appStore.buildRoutesAction(routeModuleList)

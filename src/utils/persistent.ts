@@ -7,6 +7,7 @@ type StorageItem = {
   value: any
 }
 
+// TODO: 持久化添加时间限制
 export const usePersistent = (type: StorageType) => {
   const storage = type === StorageType.l ? window.localStorage : window.sessionStorage
 
