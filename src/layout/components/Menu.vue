@@ -10,12 +10,14 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useAppStore } from '@/stores/app'
+import { usePermissionStore } from '@/stores/permission'
+import { useMultipleTabStore } from '@/stores/multipleTab'
 import type { MenuProps } from 'ant-design-vue'
 import { useRouter } from 'vue-router'
 
-const appStore = useAppStore()
-const { menus, selectedKeys, openKeys } = storeToRefs(appStore)
+const { menus } = storeToRefs(usePermissionStore())
+const { selectedKeys, openKeys } = storeToRefs(useMultipleTabStore())
+
 const router = useRouter()
 
 const click: MenuProps['onClick'] = ({ key }) => {

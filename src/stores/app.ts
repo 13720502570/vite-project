@@ -1,22 +1,15 @@
 import { defineStore } from 'pinia'
-import { useMenu } from './utils/useMenu'
-import { useTabs } from './utils/useTabs'
-import { usePermission } from './utils/usePermission'
+import { StorageType, usePersistent } from '@/utils/persistent'
+
+// 获取持久化对象
+const persistent = usePersistent(StorageType.s)
 
 export const useAppStore = defineStore('app', () => {
-  const menuStore = useMenu()
-  const tabsStore = useTabs()
-  const permissionsStore = usePermission()
-
   const resetAllState = () => {
-    menuStore.resetStore()
-    tabsStore.resetStore()
+    persistent.clear()
   }
 
   return {
-    ...menuStore,
-    ...tabsStore,
-    ...permissionsStore,
     resetAllState
   }
 })

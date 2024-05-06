@@ -2,7 +2,7 @@
   <div>
     <a-tabs :activeKey="currentTab" hide-add type="editable-card" @change="change" @edit="edit">
       <a-tab-pane
-        v-for="pane in cachedTabList"
+        v-for="pane in openTabList"
         :key="pane.key"
         :tab="pane.label"
         :closable="pane.key !== HOME_PAGE"
@@ -12,14 +12,14 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore } from '@/stores/app'
+import { useMultipleTabStore } from '@/stores/multipleTab'
 import type { TabsProps } from 'ant-design-vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { HOME_PAGE } from '@/enum/appEnum'
 
-const appStore = useAppStore()
-const { currentTab, cachedTabList } = storeToRefs(appStore)
+const multipleTabStore = useMultipleTabStore()
+const { currentTab, openTabList } = storeToRefs(multipleTabStore)
 
 const router = useRouter()
 const change: TabsProps['onChange'] = (key) => {
@@ -27,7 +27,7 @@ const change: TabsProps['onChange'] = (key) => {
 }
 
 const edit: TabsProps['onEdit'] = (key) => {
-  appStore.removeTab(key as string)
+  multipleTabStore.removeTab(key as string)
 }
 </script>
 

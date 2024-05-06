@@ -45,11 +45,12 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore } from '@/stores/app'
+import { useUserStore } from '@/stores/user'
 import type { FormProps } from 'ant-design-vue'
 import { useForm } from 'ant-design-vue/es/form'
 import { ref, unref } from 'vue'
 import { useRouter } from 'vue-router'
+
 const router = useRouter()
 
 const form = ref({
@@ -78,8 +79,8 @@ const submit: FormProps['onSubmit'] = () => {
   validate().then(() => {
     // TODO：登录接口
     const formValue = unref(form)
-    const appStore = useAppStore()
-    appStore.setToken(formValue.userName + '/' + formValue.password)
+    const userStore = useUserStore()
+    userStore.setToken(formValue.userName + '/' + formValue.password)
     router.push('/')
   })
 }

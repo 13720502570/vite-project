@@ -1,10 +1,11 @@
-import { StorageType, usePersistent } from '@/utils/persistent'
+import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import { StorageType, usePersistent } from '@/utils/persistent'
 
 // 获取持久化对象
 const persistent = usePersistent(StorageType.l)
 
-export const usePermission = () => {
+export const useUserStore = defineStore('user', () => {
   const token = ref<string>('')
 
   const getToken = () => token.value || persistent.get('token')
@@ -25,4 +26,4 @@ export const usePermission = () => {
     setToken,
     removeToken
   }
-}
+})

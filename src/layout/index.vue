@@ -15,7 +15,7 @@
       </a-layout-header>
       <a-layout-content>
         <router-view v-slot="{ Component }">
-          <keep-alive :include="cacheList">
+          <keep-alive :include="cachedMenu">
             <component :is="Component" />
           </keep-alive>
         </router-view>
@@ -31,13 +31,12 @@ import Menu from './components/Menu.vue'
 import AppSetting from './components/AppSetting.vue'
 import MultipleTabs from './components/MultipleTabs.vue'
 
-import { computed, ref } from 'vue'
-import { useAppStore } from '@/stores/app'
+import { ref } from 'vue'
+import { useMultipleTabStore } from '@/stores/multipleTab'
 
 const collapsed = ref(false)
 
-const { cachedTabList } = storeToRefs(useAppStore())
-const cacheList = computed(() => cachedTabList.value.filter((v) => !v.noCache).map((v) => v.key))
+const { cachedMenu } = storeToRefs(useMultipleTabStore())
 </script>
 
 <style scoped></style>
