@@ -16,7 +16,7 @@ import { useMultipleTabStore } from '@/stores/multipleTab'
 import type { TabsProps } from 'ant-design-vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
-import { HOME_PAGE } from '@/enum/appEnum'
+import { HOME_PAGE } from '@/enums/appEnum'
 
 const multipleTabStore = useMultipleTabStore()
 const { currentTab, openTabList } = storeToRefs(multipleTabStore)
