@@ -26,12 +26,6 @@
             <a-form-item v-bind="validateInfos.password">
               <a-input v-model:value="form.password" placeholder="密码" size="large"></a-input>
             </a-form-item>
-            <a-form-item v-bind="validateInfos.remember">
-              <div class="flex justify-between items-center">
-                <a-checkbox v-model:check="form.remember" size="large">记住我</a-checkbox>
-                <a-button type="link" size="large">忘记密码</a-button>
-              </div>
-            </a-form-item>
             <a-form-item>
               <a-button type="primary" html-type="submit" class="w-full" size="large">
                 登录
@@ -55,8 +49,7 @@ const router = useRouter()
 
 const form = ref({
   userName: '',
-  password: '',
-  remember: false
+  password: ''
 })
 const rules = ref({
   userName: [

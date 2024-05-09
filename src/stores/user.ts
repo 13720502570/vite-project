@@ -1,23 +1,20 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { StorageType, usePersistent } from '@/utils/persistent'
-
-// 获取持久化对象
-const persistent = usePersistent(StorageType.l)
+import { LStorage } from '@/utils/cache'
 
 export const useUserStore = defineStore('user', () => {
   const token = ref<string>('')
 
-  const getToken = () => token.value || persistent.get('token')
+  const getToken = () => token.value || LStorage.get('token')
 
   const setToken = (data: string) => {
     token.value = data
-    persistent.set('token', token.value)
+    LStorage.set('token', token.value, true)
   }
 
   const removeToken = () => {
     token.value = ''
-    persistent.remove('token')
+    LStorage.remove('token')
   }
 
   return {

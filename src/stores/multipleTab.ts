@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { computed, ref, unref } from 'vue'
 import { useRouter, type RouteLocationNormalized } from 'vue-router'
 
-type TabType = {
+interface TabType {
   route: RouteLocationNormalized
   label: string
   key: string
