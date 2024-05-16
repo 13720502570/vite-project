@@ -2,7 +2,6 @@ import { useUserStore } from '@/stores/user'
 import { usePermissionStore } from '@/stores/permission'
 import { useMultipleTabStore } from '@/stores/multipleTab'
 import type { Router } from 'vue-router'
-import { message } from 'ant-design-vue'
 
 const whitePathList: string[] = ['/login']
 
