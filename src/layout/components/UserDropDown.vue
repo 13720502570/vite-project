@@ -6,7 +6,7 @@
         <span class="ml-10">Vue3</span>
       </div>
       <template #overlay>
-        <a-menu mode="inline" :items="menus" @click="click" />
+        <a-menu :items="menus" @click="click" />
       </template>
     </a-dropdown>
   </div>

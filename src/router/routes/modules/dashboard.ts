@@ -3,26 +3,17 @@ import type { AppRouteRecordRaw } from '../type'
 const dashboard: AppRouteRecordRaw = {
   path: '/dashboard',
   name: 'dashboard',
-  redirect: { name: 'Test' },
+  redirect: { name: 'TestRoute' },
   meta: {
     title: 'dashboard'
   },
   children: [
     {
-      path: 'test1',
-      name: 'Test',
-      component: () => import('@/views/dashboard/Test.vue'),
+      path: 'testRoute',
+      name: 'TestRoute',
+      component: () => import('@/views/dashboard/TestRoute.vue'),
       meta: {
-        title: 'test1',
-        noCache: true
-      }
-    },
-    {
-      path: 'test2',
-      name: 'Test2',
-      component: () => import('@/views/dashboard/Test2.vue'),
-      meta: {
-        title: 'test2'
+        title: 'testRoute'
       }
     }
   ]
