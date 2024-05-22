@@ -9,6 +9,7 @@ import type {
 import { useUserStore } from '@/stores/user'
 import router from '@/router'
 import { message as messageApi } from 'ant-design-vue'
+import { requestContainer } from './RequestContainer'
 
 /* 
   1.定义一个请求、响应拦截器数组
@@ -37,7 +38,10 @@ export class MyAxios {
   }
 
   // 请求头默认配置，根据customRequestOptions配置项决定是否开启
-  private requestHandler(config: InternalAxiosRequestConfig<any>) {
+  private requestHandler(config: InternalAxiosRequestConfig) {
+    // 生成并保存当前请求的取消对象
+    config = requestContainer.addRequest(config)
+
     // 请求头添加凭证
     const { authenticationScheme } = this.requestOptions
     const userStore = useUserStore()
@@ -48,14 +52,19 @@ export class MyAxios {
 
   // 响应错误状态码处理
   private responseErrorHandler(error: any) {
-    const { response, message, code } = error || {}
+    const { response, config, message, code } = error || {}
+    requestContainer.removeRequest(config)
+
+    // 请求被取消
+    if (axios.isCancel(error)) {
+      return Promise.reject(error)
+    }
     if (message?.includes?.('Network Error')) {
       messageApi.error('网络异常，请检查您的网络连接是否正常！')
       return Promise.reject(error)
     }
     if (message?.includes?.('timeout') || code === 'ECONNABORTED') {
       messageApi.error('接口请求超时，请刷新页面重试！')
-      // TODO：请求重发
       return Promise.reject(error)
     }
     switch (response?.status) {
@@ -102,8 +111,11 @@ export class MyAxios {
     if (!this.register) {
       // 注册请求拦截器
       this.requestInterceptorArray.forEach((v) => this.axiosInstance.interceptors.request.use(v))
-      // 注册响应失败处理拦截器
-      this.axiosInstance.interceptors.response.use(undefined, this.responseErrorHandler)
+      // 注册默认响应拦截器
+      this.axiosInstance.interceptors.response.use((response) => {
+        requestContainer.removeRequest(response.config)
+        return response
+      }, this.responseErrorHandler)
       // 注册响应拦截器
       this.responseInterceptorArray.forEach((v) => this.axiosInstance.interceptors.response.use(v))
       this.register = true
