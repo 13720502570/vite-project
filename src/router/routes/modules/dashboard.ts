@@ -15,6 +15,14 @@ const dashboard: AppRouteRecordRaw = {
       meta: {
         title: 'testRoute'
       }
+    },
+    {
+      path: 'testLoading',
+      name: 'TestLoading',
+      component: () => import('@/views/dashboard/TestLoading.vue'),
+      meta: {
+        title: 'testLoading'
+      }
     }
   ]
 }
