@@ -1,6 +1,7 @@
 import '@/styles/index.less'
 import 'virtual:uno.css'
 
+import { IonicVue } from '@ionic/vue'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
@@ -10,8 +11,11 @@ import globalDirectives from './directives'
 
 const app = createApp(App)
 
+app.use(IonicVue)
 app.use(createPinia())
 app.use(router)
 app.use(globalDirectives)
 
-app.mount('#app')
+router.isReady().then(() => {
+  app.mount('#app')
+})
