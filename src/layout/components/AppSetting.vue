@@ -1,9 +1,15 @@
 <template>
   <div class="flex items-center">
     <div @click="toggleMenuStatus" class="text-16 px-10 cursor-pointer">
-      <MenuUnfoldOutlined v-if="collapsed" /> <MenuFoldOutlined v-else />
+      <div class="hidden lg:block">
+        <MenuUnfoldOutlined v-if="collapsed" />
+        <MenuFoldOutlined v-else />
+      </div>
+      <div class="lg:hidden">
+        <MenuOutlined />
+      </div>
     </div>
-    <div>
+    <div class="hidden lg:block">
       <Breadcrumb />
     </div>
     <div class="h-full ml-auto mr-10">
@@ -13,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue'
+import { MenuUnfoldOutlined, MenuFoldOutlined, MenuOutlined } from '@ant-design/icons-vue'
 import Breadcrumb from './Breadcrumb.vue'
 import UserDropDown from './UserDropDown.vue'
 
