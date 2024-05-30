@@ -17,7 +17,7 @@ http.addRequestInterceptor((config) => {
 http.addResponseInterceptor((response) => {
   // TODO：根据项目实际数据结构进行处理
   const res = response.data
-  if (res.code === '') {
+  if (res.code === '0') {
     return response
   } else {
     message.error(res.message)
