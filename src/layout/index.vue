@@ -6,8 +6,8 @@
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="height: 80px; background: white; padding: 0; line-height: normal">
-        <AppSetting v-model:collapsed="collapsed" style="border-bottom: 1px solid #eee" class="h-48 flex" />
-        <MultipleTabs class="h-32 overflow-y-hidden" />
+        <AppSetting v-model:collapsed="collapsed" style="border-bottom: 1px solid #eee" class="h-48px flex" />
+        <MultipleTabs class="h-32px overflow-y-hidden" />
       </a-layout-header>
       <a-layout-content>
         <router-view v-slot="{ Component }">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="font-bold" text="center 32 xl:left">登录</h2>
+    <h2 class="font-bold" text="center 8 xl:left">登录</h2>
     <a-form class="w-full" :model="form" @submit="submit">
       <a-form-item v-bind="validateInfos.userName">
         <a-input v-model:value="form.userName" placeholder="账号" size="large"></a-input>

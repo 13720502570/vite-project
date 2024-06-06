@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center">
-    <div @click="toggleMenuStatus" class="text-16 px-10 cursor-pointer">
+    <div @click="toggleMenuStatus" class="text-4 px-2.5 cursor-pointer">
       <div class="hidden lg:block">
         <MenuUnfoldOutlined v-if="collapsed" />
         <MenuFoldOutlined v-else />
@@ -12,7 +12,7 @@
     <div class="hidden lg:block">
       <Breadcrumb />
     </div>
-    <div class="h-full ml-auto mr-10">
+    <div class="h-full ml-auto mr-2.5">
       <UserDropDown />
     </div>
   </div>
